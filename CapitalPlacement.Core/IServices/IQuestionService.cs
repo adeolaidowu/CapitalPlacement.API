@@ -6,8 +6,8 @@ namespace CapitalPlacement.Core.IServices
 {
     public interface IQuestionService
     {
-        Task<ApiResponse<Question>> CreateQuestionAsync(CreateQuestionDto question);
-        Task<bool> UpdateQuestionAsync(string questionId, CreateQuestionDto question);
+        Task<ApiResponse<Question>> CreateQuestionAsync(QuestionDto question);
+        Task<bool> UpdateQuestionAsync(string questionId, QuestionDto question);
         Task<ApiResponse<IEnumerable<GetQuestionDto>>> GetQuestionsByTypeAsync(QuestionType questionType);
 
         Task<ApiResponse<GetQuestionDto>> GetQuestionByIdAsync(string questionId);

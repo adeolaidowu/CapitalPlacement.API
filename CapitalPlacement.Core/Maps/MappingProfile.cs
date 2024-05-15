@@ -13,7 +13,7 @@ namespace CapitalPlacement.Core.Maps
     {
         public MappingProfile()
         {
-            CreateMap<Question, CreateQuestionDto>().ReverseMap();
+            CreateMap<Question, QuestionDto>().ReverseMap();
             CreateMap<Question, GetQuestionDto>().ReverseMap();
             CreateMap<CandidateApplicationDto, CandidateApplication>().ReverseMap();
         }

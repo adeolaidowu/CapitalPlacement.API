@@ -17,25 +17,25 @@ namespace CapitalPlacement.API.Controllers
             _questionService = questionService;
         }
         [HttpPost("create")]
-        public async Task<IActionResult> CreateQuestion(CreateQuestionDto question)
+        public async Task<IActionResult> CreateQuestion(QuestionDto question)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var res = await _questionService.CreateQuestionAsync(question);
-            // do validation check first
+            
             if (res.Success)
             {
                 return CreatedAtAction(nameof(GetQuestion), new { res.Data.Id }, res.Data);
             }
-            return Ok(res);
+            return BadRequest(res);
 
-            //use data annotation or fluent validation on model, return bad request if model not good
-            //return internal server error for other error
-            //add caching(in-mem or distributed)
-            //logging
-            //tests
         }
 
         [HttpPut("edit/{id}")]
-        public async Task<IActionResult> UpdateQuestion(string id, CreateQuestionDto question)
+        public async Task<IActionResult> UpdateQuestion(string id, QuestionDto question)
         {
             var res = await _questionService.UpdateQuestionAsync(id, question);
             if (res == true)
