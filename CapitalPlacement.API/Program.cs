@@ -1,3 +1,4 @@
+using CapitalPlacement.Core.IRepositories;
 using CapitalPlacement.Core.IServices;
 using CapitalPlacement.Core.Services;
 using CapitalPlacement.Infrastructure.Data;
@@ -20,12 +21,14 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 #region repositories
 
 builder.Services.AddScoped<IQuestionRepository, QuestionRepository>();
+builder.Services.AddScoped<IApplicationRepository, ApplicationRepository>();
 
 #endregion
 
 #region Services
 
 builder.Services.AddScoped<IQuestionService, QuestionService>();
+builder.Services.AddScoped<IApplicationService, ApplicationService>();
 
 #endregion
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

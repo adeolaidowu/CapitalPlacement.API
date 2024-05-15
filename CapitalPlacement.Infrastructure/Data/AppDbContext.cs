@@ -15,6 +15,7 @@ namespace CapitalPlacement.Infrastructure.Data
 
         }
         public DbSet<Question> Questions { get; set; }
+        public DbSet<CandidateApplication> CandidatesApplications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -23,6 +24,13 @@ namespace CapitalPlacement.Infrastructure.Data
                 q.ToContainer("Questions");
                 q.HasPartitionKey(x => x.Id);
             });
+
+            modelBuilder.Entity<CandidateApplication>(c =>
+            {
+                c.ToContainer("CandidateApplications");
+                c.HasPartitionKey(x => x.Id);
+            });
+
         }
     }
 }

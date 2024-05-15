@@ -4,11 +4,6 @@ using CapitalPlacement.Core.IServices;
 using CapitalPlacement.Core.Models;
 using CapitalPlacement.Core.Response;
 using CapitalPlacement.Infrastructure.IRepositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapitalPlacement.Core.Services
 {
@@ -59,18 +54,21 @@ namespace CapitalPlacement.Core.Services
                         return response;
                     }
                 }
-                if(question.Type != QuestionType.MultipleChoice)
+                if (question.Type != QuestionType.MultipleChoice && question.Type != QuestionType.Dropdown)
+                {
+                    if (question.EnableOtherOption)
+                    {
+                        response.Success = false;
+                        response.Message = "Enable other options is only valid for Multiple Choice and Dropdown question types";
+                        return response;
+                    }
+                }
+                if (question.Type != QuestionType.MultipleChoice)
                 {
                     if (question.MaxChoiceAllowed != 0)
                     {
                         response.Success = false;
                         response.Message = "You cannot specify maximum choice allowed for this question type";
-                        return response;
-                    }
-                    if(question.EnableOtherOption)
-                    {
-                        response.Success = false;
-                        response.Message = "Enable other options is only valid for Multiple Choice question types";
                         return response;
                     }
                 }
@@ -155,6 +153,7 @@ namespace CapitalPlacement.Core.Services
                     {
                         if (question.Options.Count < 1) return false;
                         questionFromDb.Options = question.Options;
+                        questionFromDb.EnableOtherOption = question.EnableOtherOption;
                     }
                     if(question.Type == QuestionType.Number || question.Type == QuestionType.YesOrNo || question.Type == QuestionType.Date || question.Type == QuestionType.Paragraph)
                     {
@@ -174,6 +173,7 @@ namespace CapitalPlacement.Core.Services
                     else if(question.Type == QuestionType.Dropdown)
                     {
                         questionFromDb.Options = question.Options.Count > 0 ? question.Options : questionFromDb.Options;
+                        questionFromDb.EnableOtherOption = question.EnableOtherOption;
                     }
                 }
                 questionFromDb.Text = question.Text;

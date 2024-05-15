@@ -15,6 +15,7 @@ namespace CapitalPlacement.Core.Maps
         {
             CreateMap<Question, CreateQuestionDto>().ReverseMap();
             CreateMap<Question, GetQuestionDto>().ReverseMap();
+            CreateMap<CandidateApplicationDto, CandidateApplication>().ReverseMap();
         }
     }
 }
