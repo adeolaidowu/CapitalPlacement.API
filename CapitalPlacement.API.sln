@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapitalPlacement.Core", "Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapitalPlacement.Infrastructure", "CapitalPlacement.Infrastructure\CapitalPlacement.Infrastructure.csproj", "{D72B8FD3-B06A-45C4-8135-40045C3D5580}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapitalPlacement.Tests", "CapitalPlacement.Tests\CapitalPlacement.Tests.csproj", "{0B71491E-654C-4282-A7A4-F2D93ECA32F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D72B8FD3-B06A-45C4-8135-40045C3D5580}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D72B8FD3-B06A-45C4-8135-40045C3D5580}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D72B8FD3-B06A-45C4-8135-40045C3D5580}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B71491E-654C-4282-A7A4-F2D93ECA32F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B71491E-654C-4282-A7A4-F2D93ECA32F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B71491E-654C-4282-A7A4-F2D93ECA32F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B71491E-654C-4282-A7A4-F2D93ECA32F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
